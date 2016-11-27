@@ -27,6 +27,7 @@ class NewVisitorTest(FunctionalTest):
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy peacock feathers" as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
+        print('deveria fazer um ENTER')
         edith_list_url = self.browser.current_url
         self.assertRegex(edith_list_url, '/lists/.+')
         self.check_for_row_in_list_table('1: Buy peacock feathers')
@@ -48,7 +49,7 @@ class NewVisitorTest(FunctionalTest):
         # We use a new browser session to make sure that no information
         # of Edith's is coming through from cookies etc #1
         self.browser.quit()
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Chrome('/home/hermogenes/Devs/chromedriver')
 
         self.browser.get(self.server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
