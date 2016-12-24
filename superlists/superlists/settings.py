@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tdd_book',
-        'USER': os.environ['USERNAME_DB'],
-        'PASSWORD': os.environ['PASSWORD_DB'],
+        'USER': os.environ.get('USERNAME_DB', 'root'),
+        'PASSWORD': os.environ.get('PASSWORD_DB', '123456'),
         'HOST': os.environ.get('HOST_DB', 'localhost'),
         'PORT': os.environ.get('HOST_DB', ''), #empty for default port
     }
